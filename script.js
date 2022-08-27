@@ -20,7 +20,10 @@ function getComputerChoice() {
 
 console.log(getComputerChoice());
 
-let getPlayerChoice = prompt("test");
-let playerSelection = getPlayerChoice.toLowerCase();
+function getPlayerChoice() {
+    let playerInput = prompt("test");
+    let playerSelection = playerInput.toLowerCase();
+    return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+};
 
-console.log(playerSelection);
+console.log(getPlayerChoice());
