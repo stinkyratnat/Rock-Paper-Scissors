@@ -41,6 +41,24 @@ function playRound() {
     else if ((playerSelection === "Rock") && (computerSelection === "Rock")) {
         state = "Tie";
     }
+    else if ((playerSelection === "Paper") && (computerSelection === "Scissors")) {
+        state = "Lose";
+    }
+    else if ((playerSelection === "Paper") && (computerSelection === "Paper")) {
+        state = "Tie";
+    }
+    else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
+        state = "Win";
+    }
+    else if ((playerSelection === "Scissors") && (computerSelection === "Scissors")) {
+        state = "Tie";
+    }
+    else if ((playerSelection === "Scissors") && (computerSelection === "Paper")) {
+        state = "Win";
+    }
+    else if ((playerSelection === "Scissors") && (computerSelection === "Rock")) {
+        state = "Lose";
+    }
     else {
         state = "Invalid"
     }
