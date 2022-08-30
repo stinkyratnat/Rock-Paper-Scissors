@@ -18,12 +18,46 @@ function getComputerChoice() {
     return computerHand;
 }
 
-console.log(getComputerChoice());
-
 function getPlayerChoice() {
     let playerInput = prompt("test");
-    let playerSelection = playerInput.toLowerCase();
-    return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    let playerHand = playerInput.toLowerCase();
+    return playerHand.charAt(0).toUpperCase() + playerHand.slice(1);
 };
 
-console.log(getPlayerChoice());
+let playerSelection = getPlayerChoice();
+let computerSelection = getComputerChoice();
+
+console.log(computerSelection);
+
+function playRound() {
+    let state;
+
+    if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
+        state = "Win";
+    }
+    else if ((playerSelection === "Rock") && (computerSelection === "Paper")) {
+        state = "Lose";
+    }
+    else if ((playerSelection === "Rock") && (computerSelection === "Rock")) {
+        state = "Tie";
+    }
+    else {
+        state = "Invalid"
+    }
+
+    if (state === "Win") {
+        return "You " + state + "! " + playerSelection + " beats " + computerSelection;
+    }
+    else if (state === "Lose") {
+        return "You " + state + "! " + playerSelection + " loses to " + computerSelection;
+    }
+    else if (state === "Tie") {
+        return "You tied!"
+    }
+    else {
+        return "Invalid input."
+    }
+}
+
+console.log(playRound());
+
