@@ -19,7 +19,7 @@ function getComputerChoice() {
 }
 
 function playRound() {
-    function getPlayerChoice(input = prompt("test2")) {
+    function getPlayerChoice(input = prompt("Shoot!")) {
         let playerHand = input.toLowerCase();
         return playerHand.charAt(0).toUpperCase() + playerHand.slice(1);
     };
@@ -29,35 +29,23 @@ function playRound() {
 
     let state;
 
-    if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
+    if ((playerSelection === "Rock") && (computerSelection === "Scissors")
+    || (playerSelection === "Paper") && (computerSelection === "Rock")
+    || (playerSelection === "Scissors") && (computerSelection === "Paper")) {
         state = "Win";
     }
-    else if ((playerSelection === "Rock") && (computerSelection === "Paper")) {
+    else if ((playerSelection === "Rock") && (computerSelection === "Paper")
+    || (playerSelection === "Paper") && (computerSelection === "Scissors")
+    || (playerSelection === "Scissors") && (computerSelection === "Rock")) {
         state = "Lose";
     }
-    else if ((playerSelection === "Rock") && (computerSelection === "Rock")) {
+    else if ((playerSelection === "Rock") && (computerSelection === "Rock")
+    || (playerSelection === "Paper") && (computerSelection === "Paper")
+    || (playerSelection === "Scissors") && (computerSelection === "Scissors")) {
         state = "Tie";
-    }
-    else if ((playerSelection === "Paper") && (computerSelection === "Scissors")) {
-        state = "Lose";
-    }
-    else if ((playerSelection === "Paper") && (computerSelection === "Paper")) {
-        state = "Tie";
-    }
-    else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
-        state = "Win";
-    }
-    else if ((playerSelection === "Scissors") && (computerSelection === "Scissors")) {
-        state = "Tie";
-    }
-    else if ((playerSelection === "Scissors") && (computerSelection === "Paper")) {
-        state = "Win";
-    }
-    else if ((playerSelection === "Scissors") && (computerSelection === "Rock")) {
-        state = "Lose";
     }
     else {
-        state = "Invalid"
+        state = "Invalid";
     }
 
     if (state === "Win") {
@@ -67,7 +55,7 @@ function playRound() {
         return "You " + state + "! " + playerSelection + " loses to " + computerSelection;
     }
     else if (state === "Tie") {
-        return "You tied!"
+        return "You tied. " + playerSelection + " ties with " + computerSelection;
     }
     else {
         return "Invalid input."
