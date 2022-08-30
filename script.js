@@ -18,18 +18,15 @@ function getComputerChoice() {
     return computerHand;
 }
 
-function getPlayerChoice() {
-    let playerInput = prompt("test");
-    let playerHand = playerInput.toLowerCase();
-    return playerHand.charAt(0).toUpperCase() + playerHand.slice(1);
-};
-
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
-
-console.log(computerSelection);
-
 function playRound() {
+    function getPlayerChoice(input = prompt("test2")) {
+        let playerHand = input.toLowerCase();
+        return playerHand.charAt(0).toUpperCase() + playerHand.slice(1);
+    };
+
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
+
     let state;
 
     if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
@@ -75,7 +72,13 @@ function playRound() {
     else {
         return "Invalid input."
     }
+    
 }
 
-console.log(playRound());
+function game() {
+    for (let i = 0; i< 5; i++) {
+        console.log(playRound());
+    }
+}
 
+game();
